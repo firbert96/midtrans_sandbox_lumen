@@ -7,16 +7,12 @@ Midtrans is one of the most commonly use for payment gateway in Indonesia. Like 
 - Laravel/Lumen (7.1)
 
 ## First Config
-- Register account Midtrans https://account.midtrans.com/register
-- Make endpoint in beeceptor https://beeceptor.com/
-- ![This is an image beeceptor](https://drive.google.com/uc?export=view&id=15Asa7kVxjYV9akNEL380KlVEptmvGXW9)
-- Set enviroment to sandbox and get Client Key and Server Key (settings->access keys)
-- ![This is an image midtrans access key](https://drive.google.com/uc?export=view&id=1onjxd49s9_HeeqpiOynpKGSWHWNpamPM)
+- Register account Midtrans (https://account.midtrans.com/register)
+- Make endpoint in beeceptor (https://beeceptor.com/) [This is an image beeceptor](https://drive.google.com/uc?export=view&id=15Asa7kVxjYV9akNEL380KlVEptmvGXW9)
+- Set enviroment to sandbox and get Client Key and Server Key (settings->access keys) [This is an image midtrans access key](https://drive.google.com/uc?export=view&id=1onjxd49s9_HeeqpiOynpKGSWHWNpamPM)
 - Set Finish URL Midtrans (settings->configuration)
-- ![This is an image midtrans configuration](https://drive.google.com/uc?export=view&id=1n9IntSsFLXD4jugDh8dqsfe_L2YmkYPn)
-- Set Email Notification
-- ![This is an image midtrans email notifcation 0](https://drive.google.com/uc?export=view&id=1wAkHkKZQ5cN6n4XGgOtQJ0M_nlXk0ZyM)
-- ![This is an image midtrans email notifcation 1](https://drive.google.com/uc?export=view&id=1Vds6AqzlhNpVp6dCK1Lj8q88doAU0llc)
+- [This is an image midtrans configuration](https://drive.google.com/uc?export=view&id=1n9IntSsFLXD4jugDh8dqsfe_L2YmkYPn)
+- Set Email Notification [This is an image midtrans email notifcation 0](https://drive.google.com/uc?export=view&id=1wAkHkKZQ5cN6n4XGgOtQJ0M_nlXk0ZyM)[This is an image midtrans email notifcation 1](https://drive.google.com/uc?export=view&id=1Vds6AqzlhNpVp6dCK1Lj8q88doAU0llc)
 - Install Laragon
 - Download/pull this project to C:\laragon\www
 - Open this project with cd thisProject
