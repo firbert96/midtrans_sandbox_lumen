@@ -1,5 +1,5 @@
 # Back End(Laravel/Lumen) Midtrans Sandbox (Payment Gateway)
-### This Is API for example project Midtrans Sandbox. 
+This Is API for example project Midtrans Sandbox. 
 Disclaimer: this project just for educational purpose and you cannot use this project for the real payment. You can only test payment using payment simulator in link description below. :) 
 Midtrans is one of the most commonly use for payment gateway in Indonesia. Like credit card, transfer bank, e-wallet (gopay, ovo, shopeepay, etc).  
 
@@ -27,14 +27,9 @@ Midtrans is one of the most commonly use for payment gateway in Indonesia. Like 
 - Edit value SERVER_KEY_MIDTRANS, FINISH_URL_MIDTRANS,
 
 ## Run Development Server
-### Make sure different PORT with Front End and same port with API_URL in .env frontend
+Make sure different PORT with Front End and same port with API_URL in .env frontend
 - php -S localhost:PORT -t public
 - example: php -S localhost:8001 -t public
-
-## Run In Broswer
-### Link URL for run in browser
-- http://localhost:PORT/midtrans/pay
-- ex: php -S localhost:8001 -t public
 
 ## Special Big Thanks 
 ### I am follow this articles to create this project.
