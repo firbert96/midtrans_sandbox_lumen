@@ -34,7 +34,23 @@ class MidtransController extends Controller
 
         $item_list = array();
         $amount = 0;
-        Config::$serverKey = env('SERVER_KEY_MIDTRANS');
+        $serverKey = '';
+        $finishURL = '';
+        $redirectURL = '';
+        if(env('APP_ENV') == 'prod')
+        {
+            // Enable Production
+            Config::$isProduction = true;
+            $serverKey = env('SERVER_KEY_MIDTRANS_PROD');
+            $redirectURL = env('REDIRECT_URL_TOKEN_MIDTRANS_PROD');
+        }
+        else if(env('APP_ENV') == 'dev')
+        {
+            $serverKey = env('SERVER_KEY_MIDTRANS_DEV');
+            $redirectURL = env('REDIRECT_URL_TOKEN_MIDTRANS_DEV');
+        }
+
+        Config::$serverKey = $serverKey;
         if (!isset(Config::$serverKey)) {
             return "Please set your payment server key";
         }
@@ -109,44 +125,19 @@ class MidtransController extends Controller
         "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret",
         "danamon_online", "akulaku", "shopeepay"];
 
-        // $bca_va = [
-        //   'va_number' => '213123',
-        //   "sub_company_code" => "00000",
-        //   "free_text" => [
-        //     "inquiry" => [
-        //       [
-        //         "en" => "text in English",
-        //         "id" => "text in Bahasa Indonesia"
-        //       ]
-        //     ],
-        //     "payment" => [
-        //       [
-        //         "en" => "text in English",
-        //         "id" => "text in Bahasa Indonesia"
-        //       ]
-        //     ]
-        //   ],
-        // ];
-
-        $callbacks = ["finish"=> env("FINISH_URL_MIDTRANS")];
-
-        // $bca_va = json_encode($bca_va);
-
         // Fill transaction details
         $transaction = array(
             'enabled_payments' => $enable_payments,
             'transaction_details' => $transaction_details,
             'customer_details' => $customer_details,
             'item_details' => $item_details,
-            // 'bca_va' => $bca_va,
-            'callbacks' => $callbacks,
         );
         // return $transaction;
         try {
             $snapToken = Snap::getSnapToken($transaction);
             $result = [];
             $result['token'] = $snapToken;
-            $result['redirect_url'] = 'https://app.sandbox.midtrans.com/snap/v2/vtweb/'.$snapToken;
+            $result['redirect_url'] = $redirectURL.$snapToken;
             return response()->json($result);
         } catch (\Exception $e) {
             return response()->json($e->getMessage());
